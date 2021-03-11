@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/Seth-Staggs/Project-3/issues"
   },
-  "homepage": "https://github.com/Seth-Staggs/Project-3#readme"
+  "homepage": "https://github.com/Seth-Staggs/Project-3#readme",
+  "dependencies": {
+    "apollo-server": "^2.21.1",
+    "graphql": "^15.5.0",
+    "mongoose": "^5.11.19"
+  }
 }
