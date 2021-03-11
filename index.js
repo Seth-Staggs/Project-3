@@ -8,11 +8,6 @@ const typeDefs = require('./graphql/typeDefs');
 const resolvers = require('./graphql/resolvers');
 const { MONGODB } = require('./config.js');
 
-
-
-
-
-
 //Server listener
 const server = new ApolloServer({
     typeDefs,
