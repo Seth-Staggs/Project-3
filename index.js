@@ -11,7 +11,8 @@ const { MONGODB } = require('./config.js');
 //Server listener
 const server = new ApolloServer({
     typeDefs,
-    resolvers
+    resolvers,
+    context: ({ req }) => ({ req })
 });
 
 mongoose.connect(MONGODB, { useNewUrlParser: true })
