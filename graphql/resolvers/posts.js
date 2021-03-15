@@ -1,10 +1,11 @@
-const { AuthenticationError} = require('apollo-server');
+const { AuthenticationError, UserInputError } = require('apollo-server');
 
 const Post = require('../../Models/Post');
 const checkAuth = require('../../utilites/check-auth');
 
 module.exports = {
     Query: {
+        //Fetch all Posts
         async getPosts() {
             try {
                 const posts = await Post.find().sort({ createdAt: -1 });
@@ -13,6 +14,7 @@ module.exports = {
                 throw new Error(err);
             }
         },
+        //Fetch Specific Post
         async getPost(_, { postId }) {
             try {
                 const post = await Post.findById(postId);
@@ -27,6 +29,7 @@ module.exports = {
         }
     },
     Mutation: {
+        //Create Post
         async createPost(_, { body }, context) {
             const user = checkAuth(context);
             console.log(user);
@@ -41,6 +44,7 @@ module.exports = {
             const post = await newPost.save();
             return post;
         },
+        //Delete Post/Verify post owner
         async deletePost(_, { postId }, context) {
             const user = checkAuth(context);
 
@@ -51,10 +55,30 @@ module.exports = {
                     return 'Post has been Deleted';
                 } else {
                     throw new AuthenticationError('Action not allowed');
-                } 
-            } catch (err){
+                }
+            } catch (err) {
                 throw new Error(err);
             }
+        },
+        //Likes or Unlikes a post
+        async likePost(_, { postId }, context) {
+            const { username } = checkAuth(context);
+            console.log(postId);
+            const post = await Post.findById(postId);
+            console.log(post);
+            if (post) {
+              if (post.likes.find((like) => like.username === username)) {
+                post.likes = post.likes.filter((like) => like.username !== username);
+              } else {
+                post.likes.push({
+                  username,
+                  createdAt: new Date().toISOString()
+                });
+              }
+              
+              await post.save();
+              return post;
+            } else throw new UserInputError('Post not found');
         }
     }
 };

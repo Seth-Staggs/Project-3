@@ -6,6 +6,7 @@ const { validateRegisterInput, validateLoginInput } = require('../../utilites/va
 const { SKEY } = require('../../config');
 const User = require('../../Models/User');
 
+//this function generates the authentication token
 function generateToken(user){
     return jwt.sign({
         id: user.id,
@@ -17,6 +18,7 @@ function generateToken(user){
 }
 module.exports = {
     Mutation: {
+        //login function
         async login(_, { username, password }){
             const {errors, valid} = validateLoginInput(username, password);
 
@@ -43,6 +45,7 @@ module.exports = {
                 token
             }
         },
+        //function for registering new users
         async register(_, { registerInput: { username, email, password, confirmPassword }
         },
         ) {
