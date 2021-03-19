@@ -4,6 +4,10 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
 
+import Home from './pagepaths/Home';
+import Home from './pagepaths/Login';
+import Home from './pagepaths/Register';
+
 function App() {
   return (
     <Router>
