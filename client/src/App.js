@@ -7,6 +7,9 @@ import './App.css';
 import Home from './pagepaths/Home';
 import Home from './pagepaths/Login';
 import Home from './pagepaths/Register';
+import Home from './pagepaths/Messages';
+import Home from './pagepaths/Search';
+import Home from './pagepaths/Friends';
 
 function App() {
   return (
@@ -16,6 +19,7 @@ function App() {
       <Route exact path='/register' component={Register}/>
       <Route exact path='/messages' component={Messages}/>
       <Route exact path='/search' component={Search}/>
+      <Route exact path='/search' component={Friends}/>
     </Router>
   );
 }
