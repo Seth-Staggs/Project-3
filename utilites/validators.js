@@ -1,5 +1,3 @@
-const { extendResolversFromInterfaces } = require("graphql-tools");
-
 module.exports.validateRegisterInput = (
     username,
     email,
