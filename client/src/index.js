@@ -1,4 +1,4 @@
-import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloProvider  from './ApolloProvider';
 import * as serviceWorker from './serviceWorker';
 import ReactDOM from 'react-dom';
 
