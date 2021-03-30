@@ -7,8 +7,9 @@ import { AuthContext } from '../context/auth';
 import { useForm } from '../util/hooks';
 
 function Register(props) {
-  const context = useContext(AuthContext);
   const [errors, setErrors] = useState({});
+  const context = useContext(AuthContext);
+  
 
   const { onChange, onSubmit, values } = useForm(registerUser, {
     username: '',
@@ -39,7 +40,7 @@ function Register(props) {
 
   return (
     <div className="form-container">
-      <Form onSubmit={onSubmit} noValidate className={loading ? 'loading' : ''}>
+      <Form onSubmit={onSubmit} noValidate className={loading ? "loading" : ""}>
         <h1>Register</h1>
         <Form.Input
           label="Username"

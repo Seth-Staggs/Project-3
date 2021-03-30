@@ -13,7 +13,7 @@ function generateToken(user){
         email: user.email,
         username: user.username
     }, SKEY, 
-    { expiresIn: '1h' }
+    { expiresIn: '0.5hr' }
     );
 }
 module.exports = {
