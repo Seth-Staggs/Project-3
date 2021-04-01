@@ -8,10 +8,16 @@ Round Table is an interactive software application, where users can register and
 Apollo, Graphql, Moment, React, Mongoose, SemanticUI, Bcryptjs
 
 ## Repository Link:
-[Repository]()
+[Deployed Application](https://upbeat-tereshkova-bbbad7.netlify.app/)
 
 ## Collaborators on this project:
 [Seth Staggs](https://github.com/Seth-Staggs), [Karen Acosta](https://github.com/Kar3n33), [Cameron Corder]()
+
+## Future Development:
+Adding a friends, and messaging page as well as a search bar to look for friends or messages within your account.
+
+Recommendations of forums or people based on similar interests, and incorporating a bolder theme that represents this application as a platform for finding other gamers.
+
 
 ## License
 MIT License
